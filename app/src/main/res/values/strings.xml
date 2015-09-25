@@ -4,4 +4,19 @@
     <string name="action_settings">Settings</string>
     <string name="msg_server_error">Server Error</string>
     <string name="api_poster_default_size">w154</string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_sort_title" >Sort Order</string>
+    <string name="pref_sort_key" translatable="false">sort_order</string>
+    <string name="pref_sort_default">1</string>
+    <string-array name="pref_sort_entry">
+        <item>Popular</item>
+        <item>Rate</item>
+    </string-array>
+    <string-array name="pref_sort_entry_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
 </resources>

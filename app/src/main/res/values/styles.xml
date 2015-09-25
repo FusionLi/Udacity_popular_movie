@@ -5,4 +5,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Settings activity theme. -->
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
 </resources>
