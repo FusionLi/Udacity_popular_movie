@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -62,7 +63,7 @@ public class MainActivityFragment extends Fragment {
                         .appendQueryParameter(API_KEY, "cfb1decdd632391492006dbbfbb3e73b")
                         .build();
 
-                //Log.d(LOG_TAG, "URL: " + buildUri.toString());
+//                Log.d(LOG_TAG, "URL: " + buildUri.toString());
 
                 URL url = new URL(buildUri.toString());
 
@@ -169,6 +170,23 @@ public class MainActivityFragment extends Fragment {
         mImageAdapter = new ImageAdapter(getActivity());
         GridView gridView = (GridView) view.findViewById(R.id.grid_view);
         gridView.setAdapter(mImageAdapter);
+        gridView.setOnScrollListener(
+                new AbsListView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+
+                    }
+
+                    @Override
+                    public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                        int lastInScreen = firstVisibleItem + visibleItemCount;
+//                        Log.i(LOG_TAG, "first: " + firstVisibleItem + " visible: " + visibleItemCount + " total: " + totalItemCount);
+                        if (lastInScreen == totalItemCount) {
+                            startLoading();
+                        }
+                    }
+                }
+        );
         startLoading();
         return view;
     }
